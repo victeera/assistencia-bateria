@@ -45,6 +45,40 @@ class Usuario{
 		$this->senha = MD5($senha);
 	}
 
+	public function salvar(){
+		if($this->existeUsuario($this->nome_user) == false){
+		$sql = "INSERT INTO usuario SET nome = ?, sobrenome = ?, nome_user = ?, senha = ?";
+		$sql = $this->pdo->prepare($sql);
+		$sql->execute(array($this->nome, $this->sobrenome, $this->nome_user, $this->senha));
+	}else{
+		echo "O nome de usuario digitado não esta disponivel";
+	}
+}
+
+	public function autenticaUsuario($nome_user, $senha){
+		$sql = "SELECT * FROM usuario WHERE nome_user = ? AND senha = ?";
+		$sql = $this->pdo->prepare($sql);
+		$sql->execute(array($this->nome_user, MD5($this->senha)));
+
+		if($sql->rowCount() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	private function existeUsuario($u){
+		$sql = "SELECT * FROM usuario WHERE nome_user = ?";
+		$sql = $this->pdo->prepare($sql);
+		$sql->execute(array($u));
+
+		if($sql->rowCount() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 
 
 
