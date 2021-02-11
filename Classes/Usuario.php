@@ -26,7 +26,7 @@ class Usuario{
 	}
 
 	public function setSobrenome($sobrenome){
-		$this->sobreNome = $sobrenome;
+		$this->sobrenome = $sobrenome;
 	}
 
 	public function getSobrenome(){
@@ -47,9 +47,11 @@ class Usuario{
 
 	public function salvar(){
 		if($this->existeUsuario($this->nome_user) == false){
-		$sql = "INSERT INTO usuario SET nome = ?, sobrenome = ?, nome_user = ?, senha = ?";
+		$sql = "INSERT INTO usuario (nome, sobrenome, nome_user, senha) VALUES (?, ?, ?, ?)";
 		$sql = $this->pdo->prepare($sql);
 		$sql->execute(array($this->nome, $this->sobrenome, $this->nome_user, $this->senha));
+
+		echo "Cadastro realizado com sucesso";
 	}else{
 		echo "O nome de usuario digitado não esta disponivel";
 	}
