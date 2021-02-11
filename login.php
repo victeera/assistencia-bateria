@@ -1,22 +1,27 @@
 <?php
+session_start();
+
 include 'config.php';
 include 'Classes/Usuario.php';
 
 $usuario = new Usuario($pdo);
 
-if(isset($_POST['email']) && !empty($_POST['email'])){
-	$email = addslashes($_POST['email']);
+if(isset($_POST['nome_user']) && !empty($_POST['nome_user'])){
+	$nome_user = addslashes($_POST['nome_user']);
 	$senha = addslashes($_POST['senha']);
 
-	$autentica = $usuario->autenticaUsuario($email, $senha);
+	$usuario->setNome_user($nome_user);
+	$usuario->setSenha($senha);
+	$autentica = $usuario->autenticaUsuario();
 
-	if($autentica == true){
-		header("Location: index.php");
-	}else{
-	echo "Usuario ou senha invalidos";
+	if(isset($autentica) && !empty($autentica['id'])){
+
+	$_SESSION['usuario'] = $autentica['id'];
 }
+	header("Location: index.php");
+	
 }else{
-	echo "Preencha todos os campos";
+	header("Location: login.php");
 }
 
 ?>
@@ -28,12 +33,12 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
 <body>
 <form method="POST">
 	<label>Usuario</label><br>
-	<input type="text" name="usuario"><br><br>
+	<input type="text" name="nome_user"><br><br>
 
 	<label>Senha</label><br>
-	<input type="password" name="seha"><br><br>
+	<input type="password" name="senha"><br><br>
 
-	<input type="submit" value="Entrar">
+	<input type="submit" value="Entrar"> <label><a href="cadastro-usuario.php">[Cadastrar Usuario]</a></label>
 </form>
 </body>
 </html>

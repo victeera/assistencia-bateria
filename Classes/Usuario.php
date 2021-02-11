@@ -55,16 +55,16 @@ class Usuario{
 	}
 }
 
-	public function autenticaUsuario($nome_user, $senha){
+	public function autenticaUsuario(){
+		$array = array();
 		$sql = "SELECT * FROM usuario WHERE nome_user = ? AND senha = ?";
 		$sql = $this->pdo->prepare($sql);
-		$sql->execute(array($this->nome_user, MD5($this->senha)));
+		$sql->execute(array($this ->nome_user, $this->senha));
 
 		if($sql->rowCount() > 0){
-			return true;
-		}else{
-			return false;
+			$array = $sql->fetch();
 		}
+			return $array;
 	}
 
 	private function existeUsuario($u){
