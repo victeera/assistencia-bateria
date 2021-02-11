@@ -6,6 +6,7 @@ include 'Classes/Usuario.php';
 
 $usuario = new Usuario($pdo);
 
+if(isset($_['botao']) && !empty($_POST[''])){
 if(isset($_POST['nome']) && !empty($_POST['nome'])){
 	if(isset($_POST['sobrenome']) && !empty($_POST['sobrenome'])){
 		if(isset($_POST['nome_user']) && !empty($_POST['nome_user'])){
@@ -41,8 +42,10 @@ if(isset($_POST['nome']) && !empty($_POST['nome'])){
 }else{
 	echo "Preencha todos os campos";
 }
+}else{
+	echo "Preencha todos os campos";
 }
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +70,7 @@ if(isset($_POST['nome']) && !empty($_POST['nome'])){
 	<label>Confirmar senha</label><br>
 	<input type="password" name="confirma_senha"><br><br>
 
-	<input type="submit" value="Cadastrar"><br><br>
+	<input type="submit" value="Cadastrar" name="botao"><br><br>
 
 </form>
 </body>
