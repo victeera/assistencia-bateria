@@ -17,11 +17,11 @@ if(isset($_POST['nome_user']) && !empty($_POST['nome_user'])){
 	if(isset($autentica) && !empty($autentica['id'])){
 
 	$_SESSION['usuario'] = $autentica['id'];
-}
+	$_SESSION['nome'] = $autentica['nome'];
+	$_SESSION['sobrenome'] = $autentica['sobrenome'];
+
 	header("Location: index.php");
-	
-}else{
-	header("Location: login.php");
+}		
 }
 
 ?>
