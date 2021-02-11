@@ -21,7 +21,9 @@ if(isset($_POST['nome_user']) && !empty($_POST['nome_user'])){
 	$_SESSION['sobrenome'] = $autentica['sobrenome'];
 
 	header("Location: index.php");
-}		
+}else{
+	echo "Usuario e senha inválidos";
+}	
 }
 
 ?>
