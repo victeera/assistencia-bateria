@@ -58,7 +58,7 @@ class Bateria{
 		$sql = "SELECT * FROM bateria";
 		$sql = $this->pdo->query($sql);
 
-		if($sql->rowCount > 0){
+		if($sql->rowCount() > 0){
 			$array = $sql->fetchAll();
 		}
 

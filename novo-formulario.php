@@ -2,8 +2,12 @@
 session_start();
 include 'config.php';
 include 'Classes/Formulario.php';
+include 'Classes/Bateria.php';
 
 $formulario = new Formulario($pdo);
+$bateria = new Bateria($pdo);
+$sql = $bateria->getAll();
+
 
 if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 	if(isset($_POST['botao'])){
@@ -68,8 +72,12 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 	<input type="text" name="cpf"><br><br>
 
 	<label>Bateria</label><br>
-	<input type="text" name="bateria"><br><br>
-
+	<?php foreach($sql as $item): ?>
+	<select>
+		<option>-----------</option>
+		<option value="<?php echo $item['referencia']; ?>"><?php echo $item['referencia']; ?></option>
+	</select><br><br>
+<?php endforeach; ?>
 	<label>Nº garantia</label><br>
 	<input type="text" name="n_garantia"><br><br>
 
