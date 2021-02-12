@@ -73,7 +73,7 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 
 	<label>Bateria</label><br>
 	<?php foreach($sql as $item): ?>
-	<select>
+	<select name="bateria">
 		<option>-----------</option>
 		<option value="<?php echo $item['referencia']; ?>"><?php echo $item['referencia']; ?></option>
 	</select><br><br>
