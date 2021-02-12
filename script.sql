@@ -31,7 +31,7 @@ CREATE TABLE bateria(
 	id_usuario INT NOT NULL,
 
 	FOREIGN KEY(id_usuario)
-	REFERENCES formulario(id)	
+	REFERENCES usuario(id)	
 );
 
 CREATE TABLE dados_entrada(

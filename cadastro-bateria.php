@@ -46,8 +46,8 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 	<label>Marca</label><br>
 	<select name="marca">
 		<option></option>
-		<option value="Heliar">Heliar</option>
-		<option value="Strada">Strada</option>
+		<option value="HELIAR">HELIAR</option>
+		<option value="SRTADA">SRTADA</option>
 	</select><br><br>
 
 	<input type="submit" name="botao" value="Cadastrar">
