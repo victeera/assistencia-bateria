@@ -17,7 +17,7 @@ class Bateria{
 		return $this->id;
 	}
 
-	public function setReferecnia($referencia){
+	public function setReferencia($referencia){
 		$this->referencia = $referencia;
 	}
 
@@ -33,11 +33,11 @@ class Bateria{
 		return $this->marca;
 	}
 
-	public function setId_formulario($id_usuario){
+	public function setId_usuario($id_usuario){
 		$this->id_usuario = $id_usuario;
 	}
 
-	public function getId_formulario(){
+	public function getId_usuario(){
 		return $this->id_usuario;
 	}
 
@@ -46,12 +46,13 @@ class Bateria{
 		$sql = "INSERT INTO bateria (referencia, marca, id_usuario) VALUES (?, ?, ?)";
 		$sql = $this->pdo->prepare($sql);
 		$sql->execute(array($this->referencia, $this->marca, $this->id_usuario));
+		
 	}else{
 		echo "Este item ja possui cadastro";
 	}
 	}
 
-	private existeBateria($b){
+	private function existeBateria($b){
 		$sql = "SELECT * FROM bateria WHERE referencia = ?";
 		$sql = $this->pdo->prepare($sql);
 		$sql->execute(array($b));

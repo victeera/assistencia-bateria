@@ -6,7 +6,7 @@ include 'Classes/Usuario.php';
 
 $usuario = new Usuario($pdo);
 
-if(isset($_['botao'])){
+if(isset($_POST['botao'])){
 if(isset($_POST['nome']) && !empty($_POST['nome'])){
 	if(isset($_POST['sobrenome']) && !empty($_POST['sobrenome'])){
 		if(isset($_POST['nome_user']) && !empty($_POST['nome_user'])){
