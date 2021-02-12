@@ -28,9 +28,9 @@ CREATE TABLE bateria(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	referencia VARCHAR(20) NOT NULL,
 	marcar VARCHAR(20) NOT NULL,
-	id_formulario INT NOT NULL,
+	id_usuario INT NOT NULL,
 
-	FOREIGN KEY(id_formulario)
+	FOREIGN KEY(id_usuario)
 	REFERENCES formulario(id)	
 );
 
