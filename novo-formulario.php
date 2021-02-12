@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'config.php';
-include 'Formulario.php';
+include 'Classes/Formulario.php';
 
 $formulario = new Formulario($pdo);
 
@@ -17,17 +17,16 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 							$cpf = addslashes($_POST['cpf']);
 							$bateria = addslashes($_POST['bateria']);
 							$n_garantia  = addslashes($_POST['n_garantia']);
-							$status = "em aberto";
-							$id_usuario = addslashes($_POST['usuario']);
+							$status = 'em aberto';
+							$id_usuario = addslashes($_SESSION['usuario']);
 
 							$formulario->setNome_cliente($nome_cliente);
 							$formulario->setEmail($email);
 							$formulario->setCpf($cpf);
 							$formulario->setBateria($bateria);
 							$formulario->setN_garantia($n_garantia);
-							$formulario->setSatus($status);
+							$formulario->setStatus($status);
 							$formulario->setId_usuario($id_usuario);
-
 							$formulario->salvar();							
 
 
