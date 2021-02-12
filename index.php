@@ -11,4 +11,4 @@ if(empty($_SESSION['usuario'])){
 
 <h2>Bem vindo(a) <?php echo $_SESSION['nome']. ' '.$_SESSION['sobrenome']; ?></h2>
 
-<a href="novo-formulario.php">[Novo Formulario]</a>  <a href="logout.php">[Sair]</a>
+<a href="cadastro-bateria.php">[Cadastrar Bateria]</a> <a href="novo-formulario.php">[Novo Formulario]</a>  <a href="logout.php">[Sair]</a>

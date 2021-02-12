@@ -52,6 +52,19 @@ class Bateria{
 	}
 	}
 
+	public function getAll(){
+		$array = array();
+
+		$sql = "SELECT * FROM bateria";
+		$sql = $this->pdo->query($sql);
+
+		if($sql->rowCount > 0){
+			$array = $sql->fetchAll();
+		}
+
+		return $array;
+	}
+
 	private function existeBateria($b){
 		$sql = "SELECT * FROM bateria WHERE referencia = ?";
 		$sql = $this->pdo->prepare($sql);
