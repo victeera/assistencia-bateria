@@ -31,8 +31,9 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 							$formulario->setN_garantia($n_garantia);
 							$formulario->setStatus($status);
 							$formulario->setId_usuario($id_usuario);
-							$formulario->salvar();							
-
+							$teste = $formulario->salvar();							
+							
+							$_SESSION['id_formulario'] = $teste;
 
 						}else{
 							echo "Preencha todos os campos";

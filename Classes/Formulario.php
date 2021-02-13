@@ -81,6 +81,9 @@ class Formulario{
 		$sql = "INSERT INTO formulario (nome_cliente, email, cpf, bateria, n_garantia, status, id_usuario) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		$sql = $this->pdo->prepare($sql);
 		$sql->execute(array($this->nome_cliente, $this->email, $this->cpf, $this->bateria, $this->n_garantia, $this->status, $this->id_usuario));
+
+		 $lastId = $this->pdo->lastInsertId(); 
+		 return $lastId; 
 	}
 
 }
