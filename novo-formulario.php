@@ -35,6 +35,8 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 							
 							$_SESSION['id_formulario'] = $teste;
 
+							header("Location: dados-entrada.php")
+
 						}else{
 							echo "Preencha todos os campos";
 						}
