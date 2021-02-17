@@ -86,4 +86,19 @@ class Formulario{
 		 return $lastId; 
 	}
 
+	public function getForms(){
+		$array = array();
+		$sql = "SELECT f.id, f.nome_cliente, f.bateria, d.problema, f.status, d.data_entrada 
+				FROM formulario f
+				INNER JOIN dados_entrada d
+				ON f.id = d.id_formulario";
+		$sql = $this->pdo->query($sql);
+
+		if($sql->rowCount() > 0){
+			$array = $sql->fetchAll();
+		}
+
+		return $array;
+	}
+
 }
