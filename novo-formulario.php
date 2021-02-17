@@ -35,7 +35,7 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 							
 							$_SESSION['id_formulario'] = $teste;
 
-							header("Location: dados-entrada.php")
+							header("Location: dados-entrada.php");
 
 						}else{
 							echo "Preencha todos os campos";
@@ -75,12 +75,12 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 	<input type="text" name="cpf"><br><br>
 
 	<label>Bateria</label><br>
-	<?php foreach($sql as $item): ?>
 	<select name="bateria">
 		<option>-----------</option>
+		<?php foreach($sql as $item): ?>
 		<option value="<?php echo $item['referencia']; ?>"><?php echo $item['referencia']; ?></option>
+	<?php endforeach; ?>
 	</select><br><br>
-<?php endforeach; ?>
 	<label>Nº garantia</label><br>
 	<input type="text" name="n_garantia"><br><br>
 

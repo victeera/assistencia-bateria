@@ -37,8 +37,8 @@ CREATE TABLE bateria(
 CREATE TABLE dados_entrada(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	problema VARCHAR(200) NOT NULL,
-	data_entrada DATETIME NOT NULL,
-	prazo VARCHAR(20) NOT NULL,
+	data_entrada DATE NOT NULL,
+	prazo DATE NOT NULL,
 	id_formulario INT NOT NULL,
 
 	FOREIGN KEY(id_formulario)
@@ -48,7 +48,7 @@ CREATE TABLE dados_entrada(
 CREATE TABLE feedback(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	observacao VARCHAR(100) NOT NULL, 
-	data DATETIME NOT NULL, 
+	data DATE NOT NULL, 
 	id_formulario INT NOT NULL,
 
 	FOREIGN KEY(id_formulario)
