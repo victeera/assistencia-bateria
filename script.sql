@@ -60,9 +60,13 @@ CREATE TABLE dados_saida(
 	solucao VARCHAR(100) NOT NULL,
 	data_saida DATETIME NOT NULL,
 	id_formulario INT NOT NULL,
+	id_usuario INT NOT NULL,
 
 	FOREIGN KEY(id_formulario)
-	REFERENCES formulario(id)
+	REFERENCES formulario(id),
+
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id)
 );
 
 CREATE TABLE bateria_reserva(

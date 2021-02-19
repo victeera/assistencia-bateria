@@ -36,7 +36,7 @@ if(empty($_SESSION['usuario'])){
 		<td> <?php echo $form['problema']; ?></td>
 		<td> <?php echo $form['status']; ?></td>
 		<td> <?php echo date("d/m/Y", strtotime($form['data_entrada'])); ?></td>
-		<td> [Editar] [Finalizar]</td>
+		<td> [Editar] <a href="dados_saida.php">[Finalizar]</a></td>
 	</tr>
 	<?php endforeach;  ?>	
 	
