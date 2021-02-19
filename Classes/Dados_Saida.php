@@ -41,14 +41,14 @@ class Dados_Saida{
 		$this->id_usuario = $id_usuario;
 	}
 
-	public function setId_usuario(){
+	public function getId_usuario(){
 		return $this->id_usuario;
 	}
 
 	public function salvar(){
 		$sql = "INSERT INTO dados_saida(solucao, data_saida, id_formulario, id_usuario) VALUES (?, ?, ?, ?)";
 		$sql = $this->pdo->prepare($sql);
-		$sql->prepare(array($this->solucao, $this->data_saida, $this->id_formulario, $this->id_usuario));
+		$sql->execute(array($this->solucao, $this->data_saida, $this->id_formulario, $this->id_usuario));
 	}
 
 

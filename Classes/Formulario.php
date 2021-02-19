@@ -91,7 +91,8 @@ class Formulario{
 		$sql = "SELECT f.id, f.nome_cliente, f.bateria, d.problema, f.status, d.data_entrada 
 				FROM formulario f
 				INNER JOIN dados_entrada d
-				ON f.id = d.id_formulario";
+				ON f.id = d.id_formulario
+				WHERE status = 'em aberto'";
 		$sql = $this->pdo->query($sql);
 
 		if($sql->rowCount() > 0){
@@ -99,6 +100,25 @@ class Formulario{
 		}
 
 		return $array;
+	}
+
+	public function updateStatus($id){
+		if($this->existeForm($id)){
+		$sql = "UPDATE formulario SET status = ? WHERE id = ?";
+		$sql = $this->pdo->prepare($sql);
+		$sql->execute(array($this->status, $id));
+	}
+}
+	private function existeForm($id){
+		$sql = "SELECT * FROM formulario WHERE id = ?";
+		$sql = $this->pdo->prepare($sql);
+		$sql->execute(array($id));
+
+		if($sql->rowCount() > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }
