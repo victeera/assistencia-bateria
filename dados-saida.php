@@ -26,6 +26,8 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 				$formulario->setStatus($status);
 				$formulario->updateStatus($id_formulario);
 
+				header("Location: index.php");
+
 
 
 			}else{
