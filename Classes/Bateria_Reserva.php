@@ -5,7 +5,7 @@ class Bateria_Reserva{
 	private $referencia;
 	private $n_serie;
 	private $emprestou;
-	private $id_formulario
+	private $id_formulario;
 
 	private $pdo;
 
