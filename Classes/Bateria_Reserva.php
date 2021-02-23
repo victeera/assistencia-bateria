@@ -48,6 +48,12 @@ class Bateria_Reserva{
 	public function getId_formulario(){
 		return $this->id_formulario;
 	}
+
+	public function Salvar(){
+		$sql = "INSERT INTO bateria_reserva SET referencia = ?, n_serie = ?, emprestou = ?, id_formulario = ?";
+		$sql = $this->pdo->prepare($sql);
+		$sql->execute(array($this->referencia, $this->n_serie, $this->emprestou, $this->id_formulario));
+	}
 }
 
 ?>
