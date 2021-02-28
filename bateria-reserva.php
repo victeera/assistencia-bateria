@@ -3,8 +3,38 @@ session_start();
 include 'config.php';
 include 'Classes/Bateria_Reserva.php';
 
-if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
+$bateria_reseva = new Bateria_Reserva($pdo);
 
+if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
+	if(isset($_POST['botao'])){
+		if(isset($_POST['id_formulario']) && !empty($_POST['id_formulario'])){
+			if(isset($_POST['referencia']) && !empty($_POST['referencia'])){
+				if(isset($_POST['n_serie']) && !empty($_POST['n_serie'])){
+					if(isset($_POST['emprestou']) && !empty($_POST['emprestou'])){
+	$id_formulario = addslashes($_POST['id_formulario']);
+	$referencia = addslashes($_POST['referencia']);
+	$n_serie = addslashes($_POST['n_serie']);
+	$emprestou = addslashes($_POST['emprestou']);
+
+	$bateria_reseva->setReferencia($referencia);
+	$bateria_reseva->setN_serie($n_serie);
+	$bateria_reseva->setEmprestou($emprestou);
+	$bateria_reseva->setId_formulario($id_formulario);
+	$bateria_reseva->salvar();
+
+}else{
+	echo "Marque uma opção";
+}
+}else{
+	echo "Digite u numero de serie";
+}
+}else{
+	echo "Digite a referencia da bateria";
+}
+}else{
+	echo "Digite o ID do Formulário";
+}
+}
 }else{
 	header("Location: login.php");
 }
