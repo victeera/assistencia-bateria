@@ -22,6 +22,8 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 	$bateria_reseva->setId_formulario($id_formulario);
 	$bateria_reseva->salvar();
 
+	header("Location: index.php");
+
 }else{
 	echo "Marque uma opção";
 }

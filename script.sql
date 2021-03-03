@@ -71,7 +71,7 @@ CREATE TABLE dados_saida(
 
 CREATE TABLE bateria_reserva(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	referencia VARCHAR(20) NOT NULL,
+	referencia VARCHAR(20),
 	n_serie VARCHAR(20),
 	emprestou CHAR(3) NOT NULL,
 	id_formulario INT NOT NULL,
@@ -79,3 +79,14 @@ CREATE TABLE bateria_reserva(
 	FOREIGN KEY(id_formulario)
 	REFERENCES formulario(id)
 );
+
+
+SELECT f.id, f.nome_cliente, f.bateria, de.problema, br.emprestou, f.status, ds.solucao, ds.data_saida
+				FROM formulario f
+				INNER JOIN dados_entrada de
+				ON f.id = de.id_formulario
+				INNER JOIN dados_saida ds
+				ON f.id = ds.id_formulario
+				INNER JOIN bateria_reserva br
+				ON f.id = br.id_formulario
+				WHERE status = 'finalizado';

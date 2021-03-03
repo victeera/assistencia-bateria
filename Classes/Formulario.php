@@ -88,10 +88,12 @@ class Formulario{
 
 	public function getForms(){
 		$array = array();
-		$sql = "SELECT f.id, f.nome_cliente, f.bateria, d.problema, f.status, d.data_entrada 
+		$sql = "SELECT f.id, f.nome_cliente, f.bateria, d.problema, br.emprestou, f.status, d.data_entrada 
 				FROM formulario f
 				INNER JOIN dados_entrada d
 				ON f.id = d.id_formulario
+				INNER JOIN bateria_reserva br
+				on f.id = br.id_formulario;
 				WHERE status = 'em aberto'";
 		$sql = $this->pdo->query($sql);
 
