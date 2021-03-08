@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link type="text/css" rel="stylesheet" href="assets/css/sinistro_entrada.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/sinistro_saida.css">
     <title>Controle de Asistencia</title>
 </head>
 <body>
@@ -57,8 +57,8 @@
         </div><br>
         <div class="row4">
             <div>Data de Entrada:</div><br>
-
-        </div>
+            <div>Data de Saída:</div>
+        </div><br>
         <div class="row5">
             <div>Cliente: ______________________________________________________</div><br>
             <div>Telefone: ____________________</div>
