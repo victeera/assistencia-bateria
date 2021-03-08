@@ -8,48 +8,77 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link type="text/css" rel="stylesheet" href="css/estilo.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/estilo.css">
     <title>Controle de Asistencia</title>
 </head>
 <body>
-<div class="corpo">
+<div class="cabecalho">
 <div class="container">
-    <fieldset class="fieldset">
-        <div class="logo">
-        <div class="div-logo">LOGO</div>
-        <div class="div-text">
-            The county was affected by the Miao rebellion of 1736-36. The county is home to many Dong people.
+    <div class="logo"><a href="#"><img src="assets/img/Logo.jpg"></a></div>
+    <div class="info">Italux Lubrificantes e Acumuladores Ltda
+        <div class="sub-info">
+            <div>
+                Av. Álvaro Botelho Maia - Nº 1160 - Centro<br>
+                 Fone: 3234-3111
+                 CNPJ: 02.436.829/0002-48<br>
+                 italux@italux.com.br<br>
+                 Manaus - AM
+            </div>
+            <div>
+                Av. Torquato Tapajós - Nº 1720 - Flores<br>
+                Fone: 3654-3111
+                CNPJ: 02.436.829/0001-67<br>
+                italux@italux.com.br<br>
+                Manaus - AM
+            </div>
+         </div>
+    </div>
+</div>
+</div>
+<hr>
 
-            On 1385, the abolition of Liping long lawsuit, built five Wei command division, military duct, administer 15 2 villages, 14 executive secretary. Ming Yongle eleven years (1413), the abolition of thinking, to appease our, suppose the Liping mansion in Liping village officer corps, attached to the Guizhou receives announcement administration to enable our, Tan Xi jurisdiction, eight boat, the ancient state, Cao drop Hou Fei, hung, drawn and ferro permanent from, Xishan Yang Dong (waste) seven executive our, implemented within civil military divide and conquer; Wu Kai Wei jurisdiction, Tun, Huguang.
+    <div class="titulo">
+    <div class="container">
+        <div class="titulo-text">Controle de Assistência</div>
+            <div class="titulo-sequencial">000716</div>
+    </div>
+    </div>
+
+    <div class="corpo">
+    <div class="center">
+        <div class="row1">Marca da Bateria:</div><br>
+        <div class="row2">
+            <div>Referencia:</div>
+            <div class="garantia">Garantia/Nº:</div>
+        </div><br>
+        <div class="row3">
+            <div>Emprestimo de Bateria:</div>
+            <div class="modelo">Modelo:</div>
+        </div><br>
+        <div class="row4">
+            <div>Data de Entrada:</div><br>
+            <div>Data de Saída:</div>
+        </div><br>
+        <div class="row5">
+            <div>Cliente: ______________________________________________________</div><br>
+            <div>Telefone: ____________________</div>
         </div>
-
-    </div></fieldset>
-    <fieldset class="fieldset">
-    <div class="topo">
-
-        <div><h1>Controle de Asistência</h1></div>
-            <div><h1>000716</h1></div>
     </div>
-    </fieldset>
-    <fieldset class="fieldset">
-    <div class="center">
-        <div>1</div>
-        <div>2</div>
     </div>
-    </fieldset>
-    <fieldset class="fieldset">
-    <div class="center">
-        <div>1</div>
-        <div>2</div>
-    </div>
-    </fieldset>
-    <fieldset class="fieldset">
+<hr>
     <div class="end">
-        <div>1</div>
-        <div>2</div>
+        <div class="acordo">
+           <p> Acordo:<br><br>
+            Estou de acordo que passados 7 dias a contar da data de entrada,
+            não mais terei direito de reclamar a bateria deixada nesta empresa
+            para carregar e verificar.<br><br>
+            De acordo com o Código do Consumidor Art. 18, § 1.º, fico ciente do prazo para ser sanado este vício.</p>
+        </div>
+    <div class="assinatura">
+        <div><hr>Funcionário</div>
+        <div><hr>Cliente</div>
     </div>
-        <fieldset class="fieldset">
-</div>
-</div>
+    </div>
+<hr>
 </body>
 </html>
