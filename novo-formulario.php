@@ -30,7 +30,7 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 							$formulario->setBateria($bateria);
 							$formulario->setN_garantia($n_garantia);
 							$formulario->setStatus($status);
-							$formulario->setId_usuario($id_usuario);
+
 							$idform = $formulario->salvar();
 							
 							$_SESSION['id_formulario'] = $idform ;

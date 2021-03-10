@@ -18,10 +18,6 @@ CREATE TABLE formulario(
 	bateria VARCHAR(20) NOT NULL,
 	n_garantia VARCHAR(20) NOT NULL,
 	status VARCHAR(10) NOT NULL,
-	id_usuario INT NOT NULL,
-
-	FOREIGN KEY(id_usuario)
-	REFERENCES usuario(id)
 );
 
 CREATE TABLE bateria(
@@ -40,9 +36,13 @@ CREATE TABLE dados_entrada(
 	data_entrada DATETIME NOT NULL,
 	prazo DATE NOT NULL,
 	id_formulario INT NOT NULL,
+	id_usuario INT NOT NULL,
 
 	FOREIGN KEY(id_formulario)
-	REFERENCES formulario(id)	 	
+	REFERENCES formulario(id),
+
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id)
 );
 
 CREATE TABLE feedback(
@@ -50,9 +50,13 @@ CREATE TABLE feedback(
 	observacao VARCHAR(100) NOT NULL, 
 	data DATETIME NOT NULL, 
 	id_formulario INT NOT NULL,
+	id_usuario INT NOT NULL,
 
 	FOREIGN KEY(id_formulario)
-	REFERENCES formulario(id)
+	REFERENCES formulario(id),
+
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id)
 );
 
 CREATE TABLE dados_saida(

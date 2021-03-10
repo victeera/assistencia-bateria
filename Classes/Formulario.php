@@ -8,7 +8,6 @@ class Formulario{
 	private $bateria;
 	private $n_garantia;
 	private $status;
-	private $id_usuario;
 
 	private $pdo;
 
@@ -69,18 +68,10 @@ class Formulario{
 		return $this->status;
 	}
 
-	public function setId_usuario($id_usuario){
-		$this->id_usuario = $id_usuario;
-	}
-
-	public function getId_usuario(){
-		return $this->id_usuario;
-	}
-
 	public function salvar(){
-		$sql = "INSERT INTO formulario (nome_cliente, email, cpf, bateria, n_garantia, status, id_usuario) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO formulario (nome_cliente, email, cpf, bateria, n_garantia, status) VALUES (?, ?, ?, ?, ?, ?)";
 		$sql = $this->pdo->prepare($sql);
-		$sql->execute(array($this->nome_cliente, $this->email, $this->cpf, $this->bateria, $this->n_garantia, $this->status, $this->id_usuario));
+		$sql->execute(array($this->nome_cliente, $this->email, $this->cpf, $this->bateria, $this->n_garantia, $this->status));
 
 		 $lastId = $this->pdo->lastInsertId();
 		 return $lastId;
