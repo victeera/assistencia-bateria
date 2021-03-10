@@ -82,8 +82,8 @@ class Formulario{
 		$sql = $this->pdo->prepare($sql);
 		$sql->execute(array($this->nome_cliente, $this->email, $this->cpf, $this->bateria, $this->n_garantia, $this->status, $this->id_usuario));
 
-		 $lastId = $this->pdo->lastInsertId(); 
-		 return $lastId; 
+		 $lastId = $this->pdo->lastInsertId();
+		 return $lastId;
 	}
 
 	public function getForms(){
@@ -122,5 +122,24 @@ class Formulario{
 			return false;
 		}
 	}
+
+    public function getDados($idform){
+        $array = array();
+	    $sql = "SELECT f.id, f.nome_cliente, f.bateria, f.n_garantia, d.problema, f.status, d.data_entrada, d.prazo, u.nome, u.sobrenome 
+				FROM formulario f
+				INNER JOIN dados_entrada d
+				ON f.id = d.id_formulario
+				INNER JOIN usuario u
+				ON f.id_usuario = u.id
+				WHERE f.id = ?";
+        $sql = $this->pdo->prepare($sql);
+        $sql->execute(array($idform));
+
+        if($sql->rowCount() > 0){
+            $array = $sql->fetch();
+        }
+        return $array;
+
+    }
 
 }

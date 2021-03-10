@@ -31,9 +31,9 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 							$formulario->setN_garantia($n_garantia);
 							$formulario->setStatus($status);
 							$formulario->setId_usuario($id_usuario);
-							$teste = $formulario->salvar();							
+							$idform = $formulario->salvar();
 							
-							$_SESSION['id_formulario'] = $teste;
+							$_SESSION['id_formulario'] = $idform ;
 
 							header("Location: dados-entrada.php");
 

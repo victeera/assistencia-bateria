@@ -1,4 +1,21 @@
 <?php
+session_start();
+
+include 'config.php';
+include 'Classes/Formulario.php';
+
+$entrada = new Formulario($pdo);
+if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
+    if(!empty($_SESSION['idform'])){
+        $idform = addslashes($_SESSION['idform']);
+        $dados = $entrada->getDados($idform);
+    }else{
+        header("Location: index.php");
+    }
+}else{
+    header("Location: login.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,29 +57,32 @@
 <div class="titulo">
     <div class="container">
         <div class="titulo-text">Controle de Assistência</div>
-        <div class="titulo-sequencial">000716</div>
+        <div class="titulo-sequencial"><?php $number = str_pad($dados['id'] , 6 , '0' , STR_PAD_LEFT); echo $number; ?></div>
     </div>
 </div>
+<hr>
 
 <div class="corpo">
     <div class="center">
-        <div class="row1">Marca da Bateria:</div><br>
+
+        <div class="row1">Marca da Bateria: <?php echo $dados['bateria']; ?></div><br>
         <div class="row2">
-            <div>Referencia:</div>
-            <div class="garantia">Garantia/Nº:</div>
+            <div>Referencia: <?php echo $dados['bateria']; ?> </div>
+            <div class="garantia">Garantia/Nº: <?php echo $dados['n_garantia']; ?></div>
         </div><br>
         <div class="row3">
-            <div>Emprestimo de Bateria:</div>
-            <div class="modelo">Modelo:</div>
+            <div>Emprestimo de Bateria: <?php echo $dados['bateria']; ?></div>
+            <div class="modelo">Modelo: <?php echo $dados['bateria']; ?></div>
         </div><br>
         <div class="row4">
-            <div>Data de Entrada:</div><br>
-
+            <div>Data de Entrada: <?php $date = date('d/m/Y', strtotime($dados['data_entrada'])); $hour = date('H:i', strtotime($dados['data_entrada']));  echo $date. ' às ' .$hour; ?></div><br>
+            <div>Retirar até: <?php $date = date('d/m/Y', strtotime($dados['prazo'])); echo $date; ?> </div><br>
         </div>
         <div class="row5">
-            <div>Cliente: ______________________________________________________</div><br>
-            <div>Telefone: ____________________</div>
+            <div>Cliente: <?php echo $dados['nome_cliente']; ?></div><br>
+            <div>Telefone: <?php echo $dados['bateria']; ?></div>
         </div>
+
     </div>
 </div>
 <hr>
@@ -75,8 +95,8 @@
             De acordo com o Código do Consumidor Art. 18, § 1.º, fico ciente do prazo para ser sanado este vício.</p>
     </div><br><br>
     <div class="assinatura">
-        <div><hr>Funcionário</div>
-        <div><hr>Cliente</div>
+        <div><hr><?php echo $dados['nome']. ' ' .$dados['sobrenome']; ?></div>
+        <div><hr><?php echo $dados['nome_cliente']; ?></div>
     </div>
 </div>
 <hr>

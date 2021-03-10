@@ -44,7 +44,7 @@ class Dados_Entrada{
 		$sql->bindValue(':prazo', $this->prazo);
 		$sql->bindValue(':id_formulario', $this->id_formulario);
 		$sql->execute();
-	}
+    }
 }
 
 ?>
