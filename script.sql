@@ -17,7 +17,7 @@ CREATE TABLE formulario(
 	cpf VARCHAR(14) NOT NULL,
 	bateria VARCHAR(20) NOT NULL,
 	n_garantia VARCHAR(20) NOT NULL,
-	status VARCHAR(10) NOT NULL,
+	status VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE bateria(

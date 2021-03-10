@@ -13,10 +13,12 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 					$problema = addslashes($_POST['problema']);
 					$prazo = addslashes($_POST['prazo']);
 					$idform = addslashes($_SESSION['id_formulario']);
+                    $id_usuario = $_SESSION['usuario'];
 
 					$entrada->setProblema($problema);
 					$entrada->setPrazo($prazo);
 					$entrada->setId_formulario($idform);
+					$entrada->setId_usuario($id_usuario);
 					$entrada->salvar();
 
 					$id = $entrada->getId_formulario();
