@@ -8,6 +8,7 @@ $entrada = new Formulario($pdo);
 if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
     if(!empty($_SESSION['idform'])){
         $idform = addslashes($_SESSION['idform']);
+        print_r($idform);
         $dados = $entrada->getDados($idform);
     }else{
         header("Location: index.php");

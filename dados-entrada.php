@@ -21,9 +21,9 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 					$entrada->setId_usuario($id_usuario);
 					$entrada->salvar();
 
-					$id = $entrada->getId_formulario();
+					$idformulario = $entrada->getId_formulario();
 
-					$_SESSION['idform'] = $id;
+					$_SESSION['idform'] = $idformulario;
 					header("Location: sinistro_entrada.php");
 
 

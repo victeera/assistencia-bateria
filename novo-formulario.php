@@ -14,11 +14,13 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 		if(!empty($_POST['nome_cliente'])){
 			if(!empty($_POST['email'])){
 				if(!empty($_POST['cpf'])){
+				if(!empty($_POST['telefone'])){
 					if(!empty($_POST['bateria'])){
 						if(!empty($_POST['n_garantia'])){
 							$nome_cliente = addslashes($_POST['nome_cliente']);
 							$email = addslashes($_POST['email']);
 							$cpf = addslashes($_POST['cpf']);
+							$telefone = addslashes($_POST['telefone']);
 							$bateria = addslashes($_POST['bateria']);
 							$n_garantia  = addslashes($_POST['n_garantia']);
 							$status = 'em aberto';
@@ -27,10 +29,11 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 							$formulario->setNome_cliente($nome_cliente);
 							$formulario->setEmail($email);
 							$formulario->setCpf($cpf);
+                            $formulario->setTelefone($telefone);
 							$formulario->setBateria($bateria);
 							$formulario->setN_garantia($n_garantia);
 							$formulario->setStatus($status);
-
+							$formulario->setId_usuario($id_usuario);
 							$idform = $formulario->salvar();
 							
 							$_SESSION['id_formulario'] = $idform ;
@@ -43,6 +46,9 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 					}else{
 						echo "Preencha todos os campos";
 					}
+				}else{
+					echo "Preencha todos os campos";
+				}
 				}else{
 					echo "Preencha todos os campos";
 				}
@@ -72,7 +78,10 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
 	<input type="text" name="email"><br><br>
 
 	<label>CPF</label><br>
-	<input type="text" name="cpf"><br><br>
+    <input type="text" name="cpf"><br><br>
+
+    <label>Telefone</label><br>
+    <input type="text" name="telefone"><br><br>
 
 	<label>Bateria</label><br>
 	<select name="bateria">

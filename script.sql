@@ -15,9 +15,14 @@ CREATE TABLE formulario(
 	nome_cliente VARCHAR(100) NOT NULL,
 	email VARCHAR(100) NOT NULL,
 	cpf VARCHAR(14) NOT NULL,
+	telefone VARCHAR(20) NOT NULL,
 	bateria VARCHAR(20) NOT NULL,
 	n_garantia VARCHAR(20) NOT NULL,
-	status VARCHAR(10) NOT NULL
+	status VARCHAR(10) NOT NULL,
+	id_usuario INT NOT NULL,
+
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id)
 );
 
 CREATE TABLE bateria(
@@ -27,7 +32,7 @@ CREATE TABLE bateria(
 	id_usuario INT NOT NULL,
 
 	FOREIGN KEY(id_usuario)
-	REFERENCES usuario(id)	
+	REFERENCES usuario(id)
 );
 
 CREATE TABLE dados_entrada(
@@ -47,8 +52,8 @@ CREATE TABLE dados_entrada(
 
 CREATE TABLE feedback(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	observacao VARCHAR(100) NOT NULL, 
-	data DATETIME NOT NULL, 
+	observacao VARCHAR(100) NOT NULL,
+	data DATETIME NOT NULL,
 	id_formulario INT NOT NULL,
 	id_usuario INT NOT NULL,
 
