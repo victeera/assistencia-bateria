@@ -87,9 +87,9 @@ class Formulario{
 	}
 
 	public function salvar(){
-		$sql = "INSERT INTO formulario (nome_cliente, email, cpf, bateria, n_garantia, status, id_usuario) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO formulario (nome_cliente, email, cpf, telefone, bateria, n_garantia, status, id_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		$sql = $this->pdo->prepare($sql);
-		$sql->execute(array($this->nome_cliente, $this->email, $this->cpf, $this->bateria, $this->n_garantia, $this->status, $this->id_usuario));
+		$sql->execute(array($this->nome_cliente, $this->email, $this->cpf, $this->telefone, $this->bateria, $this->n_garantia, $this->status, $this->id_usuario));
 
 		 $lastId = $this->pdo->lastInsertId();
 		 return $lastId;
@@ -134,7 +134,7 @@ class Formulario{
 
     public function getDados($idform){
         $array = array();
-	    $sql = "SELECT f.id, f.nome_cliente, f.bateria, f.n_garantia, d.problema, f.status, d.data_entrada, d.prazo, u.nome, u.sobrenome 
+	    $sql = "SELECT f.id, f.nome_cliente, f.bateria, f.telefone, f.n_garantia, d.problema, f.status, d.data_entrada, d.prazo, u.nome, u.sobrenome 
 				FROM formulario f
 				INNER JOIN dados_entrada d
 				ON f.id = d.id_formulario

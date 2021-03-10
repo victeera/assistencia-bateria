@@ -81,7 +81,7 @@ if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){
         </div>
         <div class="row5">
             <div>Cliente: <?php echo $dados['nome_cliente']; ?></div><br>
-            <div>Telefone: <?php echo $dados['bateria']; ?></div>
+            <div>Telefone: <?php echo $dados['telefone']; ?></div>
         </div>
 
     </div>
