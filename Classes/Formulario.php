@@ -102,8 +102,8 @@ class Formulario{
 				INNER JOIN dados_entrada d
 				ON f.id = d.id_formulario
 				INNER JOIN bateria_reserva br
-				on f.id = br.id_formulario;
-				WHERE status = 'em aberto'";
+				ON f.id = br.id_formulario;
+				WHERE f.status = 'em aberto'";
 		$sql = $this->pdo->query($sql);
 
 		if($sql->rowCount() > 0){
